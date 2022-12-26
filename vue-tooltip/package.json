@@ -1,7 +1,21 @@
 {
-  "name": "vue-tooltip",
-  "version": "0.0.0",
-  "private": true,
+  "name": "vue-tooltip-xd",
+  "version": "0.1.2",
+  "license": "MIT",
+  "author": "Christoph Brandau",
+  "private": false,
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/vue-tooltip.umd.js",
+  "module": "./dist/vue-tooltip.es.js",
+  "exports": {
+    ".": {
+      "import": "./dist/vue-tooltip.es.js",
+      "require": "./dist/vue-tooltip.umd.js"
+    },
+    "./dist/style.css": "./dist/style.css"
+  },
   "scripts": {
     "dev": "vite",
     "build": "vite build",

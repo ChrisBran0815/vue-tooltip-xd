@@ -1,35 +1,40 @@
-# vue-tooltip
+# Getting started
 
-This template should help get you started developing with Vue 3 in Vite.
+1. Install the plugin:
 
-## Recommended IDE Setup
-
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
-
-```sh
-npm install
+```
+npm i vue-tooltip-xd
 ```
 
-### Compile and Hot-Reload for Development
+2. Add the plugin into your app:
 
-```sh
-npm run dev
+```javascript
+import { createApp } from "vue";
+import App from "./App.vue";
+
+import vueToolTip from "vue-tooltip-xd";
+import "vue-tooltip-xd/dist/style.css";
+
+const app = createApp(App);
+
+app.use(vueToolTip);
+app.mount("#app");
 ```
 
-### Compile and Minify for Production
+3. Add the Component in yout HTML
 
-```sh
-npm run build
+```html
+<vue-tooltip
+    placement="bottom"
+    content="The ToolTip Text">
+    <button>Push Me</button>
+</vue-tooltip>
 ```
 
-### Lint with [ESLint](https://eslint.org/)
+The available placement are:
 
-```sh
-npm run lint
-```
+-   top
+-   bottom
+-   left
+-   right
+    the default value is bottom
