@@ -37,4 +37,5 @@ The available placement are:
 -   bottom
 -   left
 -   right
-    the default value is bottom
+
+the default value is bottom
