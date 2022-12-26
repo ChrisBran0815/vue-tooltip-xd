@@ -24,7 +24,7 @@ app.mount("#app");
 3. Add the Component in yout HTML
 
 <p align="center">
-<img src="https://github.com/christoph-xd/vue-tooltip-xd/blob/main/img/tooltip.png" width="247" height="172" alt="Screenshot"/>
+<img src="https://github.com/christoph-xd/vue-tooltip-xd/blob/main/img/tooltip.png" alt="Screenshot"/>
 </p>
 
 ```html
