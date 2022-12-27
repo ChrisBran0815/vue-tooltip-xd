@@ -9,9 +9,6 @@ jobs:
     version:
         runs-on: ubuntu-latest
         if: "!startsWith(github.event.head_commit.message, '[RELEASE]') && (startsWith(github.event.head_commit.message, '[PATCH]') || startsWith(github.event.head_commit.message, '[MINOR]') || startsWith(github.event.head_commit.message, '[MAJOR]')) "
-        env:
-            RELEASE_PREFIX: ${{ if startsWith(github.event.head_commit.message, '[PATCH]') }}'[PATCH]'${{ else if startsWith(github.event.head_commit.message, '[MINOR]') }}'[MINOR]'${{ else }}'[MAJOR]'${{ endif }}
-            RELEASE_TYPE: ${{ if startsWith(github.event.head_commit.message, '[PATCH]') }}'patch'${{ else if startsWith(github.event.head_commit.message, '[MINOR]') }}'minor'${{ else }}'major'${{ endif }}
         steps:
             - name: Checkout
               uses: actions/checkout@v2
