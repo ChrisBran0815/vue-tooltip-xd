@@ -23,12 +23,15 @@ jobs:
             - run: git config --global user.email 'c.brandau91@gmail.com'
             - run: |
                   if [[ ${{ env.PATCH }} ]];then 
+                      echo "RUN PATCH"
                       echo "RELEASE_TYPE='patch'" >> $GITHUB_ENV
                       echo "RELEASE_PREFIX='[PATCH]'"
                   elif [[ ${{ env.MINOR }} ]];then
+                      echo "RUN MINOR"
                       echo "RELEASE_TYPE='minor'" >> $GITHUB_ENV
                       echo "RELEASE_PREFIX='[MINOR]'"
                   elif [[ ${{ env.MAJOR }} ]];then
+                      echo "RUN MAJOR"
                       echo "RELEASE_TYPE='major'" >> $GITHUB_ENV
                       echo "RELEASE_PREFIX='[MAJOR]'"
                   else
