@@ -50,3 +50,14 @@ The available placement are:
 -   right
 
 the default value is bottom
+
+4. Style variables
+
+```css
+/* colors var */
+--clr-vue-tooltip-bg        /*background-color for the ToolTip */
+--clr-vue-tooltip-text      /*color for the ToolTip */
+/* font var*/
+--font-vue-tooltip-family   /*font-family for the ToolTip */
+--font-vue-tooltip-size     /*font-size for the ToolTip */
+```
