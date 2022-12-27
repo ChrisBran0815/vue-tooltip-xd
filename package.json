@@ -2,7 +2,7 @@
   "name": "vue-tooltip-xd",
   "version": "0.1.7",
   "license": "MIT",
-  "author": "Christoph Brandau",
+  "author": "Christoph Brandau (cbsk-tech@gmail.com)",
   "private": false,
   "files": [
     "dist"
