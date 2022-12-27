@@ -98,8 +98,9 @@ function show() {
     </div>
 </template>
 <style lang="scss">
-$--clr-sofia-gray-100: #37393d;
-$backgroud-color: $--clr-sofia-gray-100;
+$backgroud-color: #37393d;
+$text-color: white;
+
 .wrapper {
     display: inline-block;
     .ref {
@@ -110,9 +111,9 @@ $backgroud-color: $--clr-sofia-gray-100;
         top: 0;
         left: 0;
         z-index: 50;
-        background-color: $backgroud-color;
+        background-color: var(--clr-vue-tooltip-bg, $backgroud-color);
         font-size: medium;
-        color: white;
+        color: var(--clr-vue-tooltip-text, $text-color);
         padding: 0.25rem 0.5rem 0.25rem 0.5rem;
         border-radius: 0.5rem;
         cursor: default;
@@ -120,8 +121,7 @@ $backgroud-color: $--clr-sofia-gray-100;
         .arrow {
             position: absolute;
             z-index: -1;
-
-            background-color: $backgroud-color;
+            background-color: var(--clr-vue-tooltip-bg, $backgroud-color);
             height: 8px;
             width: 8px;
             rotate: 45deg;
