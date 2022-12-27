@@ -1,6 +1,12 @@
+<p align="center">
+<h1>Vue ToolTip</h1>
+</p>
+
+[![npm version](https://badge.fury.io/js/release-it.svg)](https://www.npmjs.com/package/vue-tooltip-xd)
+
 # Getting started
 
-1. Install the plugin:
+1. Install the component:
 
 ```
 npm i vue-tooltip-xd
@@ -34,7 +40,6 @@ app.mount("#app");
     <button>Push Me</button>
 </vue-tooltip>
 ```
-
 
 The available placement are:
 
