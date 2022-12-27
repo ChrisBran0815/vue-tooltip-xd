@@ -20,22 +20,22 @@ jobs:
             - run: |
                   if [ startsWith(github.event.head_commit.message, '[PATCH]') ]; then 
                       echo "RELEASE_TYPE='patch'" >> $GITHUB_ENV
-                      echo "RELEASE_PREFIX='[PATCH]"
+                      echo "RELEASE_PREFIX='[PATCH]'"
                   elif [ startsWith(github.event.head_commit.message, '[MINOR]') ]; then
                       echo "RELEASE_TYPE='minor'" >> $GITHUB_ENV
-                      echo "RELEASE_PREFIX='[MINOR]"
+                      echo "RELEASE_PREFIX='[MINOR]'"
                   elif [ startsWith(github.event.head_commit.message, '[MAJOR]') ]; then
                       echo "RELEASE_TYPE='major'" >> $GITHUB_ENV
-                      echo "RELEASE_PREFIX='[MAJORF]"
+                      echo "RELEASE_PREFIX='[MAJOR]'"
                   else
                       echo "RELEASE_TYPE=''" >> $GITHUB_ENV
                       echo "RELEASE_PREFIX='"
                   fi
             - run: |
-                  if ! [${{env.RELEASE_TYPE}} == '']; then
+                  if ! [c${{env.RELEASE_TYPE}} == '' ]; then
                       npm version ${{ env.RELEASE_TYPE }} -m "[RELEASE] %s"
                   fi
             - run: |
-                  if ! [${{env.RELEASE_TYPE}} == '']; then
+                  if ! [ ${{env.RELEASE_TYPE}} == '' ]; then
                       git push
                   fi
