@@ -19,5 +19,16 @@ jobs:
                   token: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
             - run: git config --global user.name 'christoph_xd'
             - run: git config --global user.email 'c.brandau91@gmail.com'
+            - run: |
+                  if [ if startsWith(github.event.head_commit.message, '[PATCH]') ]; then 
+                      echo "RELEASE_TYPE='patch'" >> $GITHUB_ENV
+                      echo "RELEASE_PREFIX='[PATCH]"
+                  elif [ if startsWith(github.event.head_commit.message, '[MINOR]') ]; then
+                      echo "RELEASE_TYPE='minor'" >> $GITHUB_ENV
+                      echo "RELEASE_PREFIX='[MINOR]"
+                  else 
+                      echo "RELEASE_TYPE='major'" >> $GITHUB_ENV
+                      echo "RELEASE_PREFIX='[MAJORF]"
+                  fi
             - run: npm version ${{ env.RELEASE_TYPE }} -m "[RELEASE] ${env.RELEASE_PREFIX} %s"
             - run: git push
