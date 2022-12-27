@@ -16,6 +16,15 @@
     },
     "./dist/style.css": "./dist/style.css"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/christoph-xd/vue-tooltip-xd.git"
+  },
+  "keywords": [
+    "vue",
+    "tooltip",
+    "vue component"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "vite build",
