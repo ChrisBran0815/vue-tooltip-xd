@@ -23,7 +23,7 @@ jobs:
             - run: git config --global user.name 'christoph_xd'
             - run: git config --global user.email 'c.brandau91@gmail.com'
             - run: |
-                  if [[ startsWith('${{ env.COMMIT_MSG }}','${{ env.PATCH }}') ]];then 
+                  if startsWith('${{ env.COMMIT_MSG }}','${{ env.PATCH }}') ;then 
                       echo "RELEASE_TYPE='patch'" >> $GITHUB_ENV
                       echo "RELEASE_PREFIX='${{ env.PATCH }}'"
                   elif [[ startsWith('${{ env.COMMIT_MSG }}','${{ env.MINOR }}') ]];then
