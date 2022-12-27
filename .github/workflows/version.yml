@@ -10,7 +10,7 @@ jobs:
         runs-on: ubuntu-latest
         env:
             COMMIT_MSG: ${{ github.event.head_commit.message }}
-            PATCH: ${{ if startsWith(github.event.head_commit.message, '[PATCH]') }}'PATCH'
+            PATCH: ${{ startsWith(github.event.head_commit.message, '[PATCH]') }}
             MINOR: "[MINOR]"
             MAJOR: "[MAJOR]"
         if: "!startsWith(github.event.head_commit.message, '[RELEASE]')"
