@@ -10,9 +10,9 @@ jobs:
         runs-on: ubuntu-latest
         env:
             COMMIT_MSG: ${{ github.event.head_commit.message }}
-            PATCH: ${{ startsWith(github.event.head_commit.message, '[PATCH]') || "false" }}
-            MINOR: ${{ startsWith(github.event.head_commit.message, '[MINOR]') || "false" }}
-            MAJOR: ${{ startsWith(github.event.head_commit.message, '[MAJOR]') || "false" }}
+            PATCH: ${{ startsWith(github.event.head_commit.message, '[PATCH]') || 'false' }}
+            MINOR: ${{ startsWith(github.event.head_commit.message, '[MINOR]') || 'false' }}
+            MAJOR: ${{ startsWith(github.event.head_commit.message, '[MAJOR]') || 'false' }}
         if: "!startsWith(github.event.head_commit.message, '[RELEASE]') && ( ${{ env.PATCH }} || ${{ env.MINOR }} || ${{ env.MAJOR }})"
         steps:
             - name: Checkout
