@@ -10,10 +10,11 @@ jobs:
         runs-on: ubuntu-latest
         env:
             COMMIT_MSG: ${{ github.event.head_commit.message }}
-            PATCH: "[PATCH]"
+            PATCH: ${{ if startsWith(github.event.head_commit.message, '[PATCH]' }}
             MINOR: "[MINOR]"
             MAJOR: "[MAJOR]"
-        if: "!startsWith(github.event.head_commit.message, '[RELEASE]') && (startsWith(github.event.head_commit.message, '[PATCH]') || startsWith(github.event.head_commit.message, '[MINOR]') )"
+        if: "!startsWith(github.event.head_commit.message, '[RELEASE]')"
+        # && (startsWith(github.event.head_commit.message, '[PATCH]') || startsWith(github.event.head_commit.message, '[MINOR]') )"
         steps:
             - name: Checkout
               uses: actions/checkout@v2
