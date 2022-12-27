@@ -8,13 +8,16 @@ on:
 jobs:
     version:
         runs-on: ubuntu-latest
-        if: "!startsWith(github.event.head_commit.message, '[RELEASE]')"
+        if: "!startsWith(github.event.head_commit.message, '[RELEASE]') && (startsWith(github.event.head_commit.message, '[PATCH]') || startsWith(github.event.head_commit.message, '[MINOR]') || startsWith(github.event.head_commit.message, '[MAJOR]')) "
+        env:
+            RELEASE_PREFIX: ${{ if startsWith(github.event.head_commit.message, '[PATCH]') }}'[PATCH]'${{ else if startsWith(github.event.head_commit.message, '[MINOR]') }}'[MINOR]'${{ else }}'[MAJOR]'${{ endif }}
+            RELEASE_TYPE: ${{ if startsWith(github.event.head_commit.message, '[PATCH]') }}'patch'${{ else if startsWith(github.event.head_commit.message, '[MINOR]') }}'minor'${{ else }}'major'${{ endif }}
         steps:
             - name: Checkout
               uses: actions/checkout@v2
               with:
                   token: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
-            - run: git config --global user.name 'AboutBits Tech'
-            - run: git config --global user.email 'tech@aboutbits.it'
-            - run: npm version patch -m "[RELEASE] %s"
+            - run: git config --global user.name 'christoph_xd'
+            - run: git config --global user.email 'c.brandau91@gmail.com'
+            - run: npm version ${{ env.RELEASE_TYPE }} -m "[RELEASE] ${env.RELEASE_PREFIX} %s"
             - run: git push
