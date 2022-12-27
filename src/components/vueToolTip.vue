@@ -62,14 +62,14 @@ async function calculatePosition() {
     });
 }
 
-function hide() {
+const hide = () => {
     isHidden.value = true;
-}
+};
 
-function show() {
+const show = () => {
     isHidden.value = false;
     calculatePosition();
-}
+};
 </script>
 
 <template>
@@ -98,9 +98,10 @@ function show() {
     </div>
 </template>
 <style lang="scss">
-$backgroud-color: #37393d;
+$background-color: #37393d;
 $text-color: white;
-
+$font-family: "Roboto", sans-serif;
+$font-size: medium;
 .wrapper {
     display: inline-block;
     .ref {
@@ -111,8 +112,9 @@ $text-color: white;
         top: 0;
         left: 0;
         z-index: 50;
-        background-color: var(--clr-vue-tooltip-bg, $backgroud-color);
-        font-size: medium;
+        background-color: var(--clr-vue-tooltip-bg, $background-color);
+        font-family: var(--font-vue-tooltip-family, $font-family);
+        font-size: var(--font-vue-tooltip-size, $font-size);
         color: var(--clr-vue-tooltip-text, $text-color);
         padding: 0.25rem 0.5rem 0.25rem 0.5rem;
         border-radius: 0.5rem;
@@ -121,7 +123,7 @@ $text-color: white;
         .arrow {
             position: absolute;
             z-index: -1;
-            background-color: var(--clr-vue-tooltip-bg, $backgroud-color);
+            background-color: var(--clr-vue-tooltip-bg, $background-color);
             height: 8px;
             width: 8px;
             rotate: 45deg;
