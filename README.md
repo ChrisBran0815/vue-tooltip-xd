@@ -62,4 +62,4 @@ the default value is bottom
 --font-vue-tooltip-size     /*font-size for the ToolTip */
 ```
 
-You can follow the Project in GitHub https://github.com/christoph-xd/vue-tooltip-xd.git .
+Follow the Project at GitHub https://github.com/christoph-xd/vue-tooltip-xd.git .
