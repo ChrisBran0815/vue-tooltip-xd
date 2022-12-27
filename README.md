@@ -3,7 +3,7 @@
 </p>
 
 [![npm version](https://img.shields.io/npm/v/vue-tooltip-xd?color=green)](https://www.npmjs.com/package/vue-tooltip-xd)
-[![License](https://img.shields.io/npm/l/vue-tooltip-xd)
+[![License](https://img.shields.io/npm/l/vue-tooltip-xd)]
 
 # Getting started
 
