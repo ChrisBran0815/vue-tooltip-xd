@@ -20,13 +20,13 @@ jobs:
             - run: git config --global user.name 'christoph_xd'
             - run: git config --global user.email 'c.brandau91@gmail.com'
             - run: |
-                  if [[ startsWith("${{ env.COMMIT_MSG }}","[PATCH]") ]]; then 
+                  if [[ startsWith("'${{ env.COMMIT_MSG }}'","'[PATCH]'") ]]; then 
                       echo "RELEASE_TYPE='patch'" >> $GITHUB_ENV
                       echo "RELEASE_PREFIX='[PATCH]'"
-                  elif [[ startsWith("${{ env.COMMIT_MSG }}","[MINOR]") ]]; then
+                  elif [[ startsWith("${{ env.COMMIT_MSG }}","'[MINOR]'") ]]; then
                       echo "RELEASE_TYPE='minor'" >> $GITHUB_ENV
                       echo "RELEASE_PREFIX='[MINOR]'"
-                  elif [[ startsWith("${{ env.COMMIT_MSG }}","[MAJOR]") ]]; then
+                  elif [[ startsWith("${{ env.COMMIT_MSG }}","'[MAJOR]'") ]]; then
                       echo "RELEASE_TYPE='major'" >> $GITHUB_ENV
                       echo "RELEASE_PREFIX='[MAJOR]'"
                   else
