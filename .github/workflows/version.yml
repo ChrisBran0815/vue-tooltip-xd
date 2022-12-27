@@ -10,9 +10,9 @@ jobs:
         runs-on: ubuntu-latest
         env:
             COMMIT_MSG: ${{ github.event.head_commit.message }}
-            PATCH: "[PATCH]"
-            MINOR: "[MINOR]"
-            MAJOR: "[MAJOR]"
+            PATCH: ${{ startsWith(github.event.head_commit.message, '[PATCH]') }}
+            MINOR: ${{ startsWith(github.event.head_commit.message, '[MINOR]') }}
+            MAJOR: ${{ startsWith(github.event.head_commit.message, '[MAJOR]') }}
         if: "!startsWith(github.event.head_commit.message, '[RELEASE]')"
         # && (startsWith(github.event.head_commit.message, '[PATCH]') || startsWith(github.event.head_commit.message, '[MINOR]') )"
         steps:
@@ -23,24 +23,24 @@ jobs:
             - run: git config --global user.name 'christoph_xd'
             - run: git config --global user.email 'c.brandau91@gmail.com'
             - run: |
-                  if startsWith('${{ env.COMMIT_MSG }}','${{ env.PATCH }}') ;then 
+                  if [[ ${{ env.PATCH }} ]];then 
                       echo "RELEASE_TYPE='patch'" >> $GITHUB_ENV
-                      echo "RELEASE_PREFIX='${{ env.PATCH }}'"
-                  elif [[ startsWith('${{ env.COMMIT_MSG }}','${{ env.MINOR }}') ]];then
+                      echo "RELEASE_PREFIX='[PATCH]'"
+                  elif [[ ${{ env.MINOR }} ]];then
                       echo "RELEASE_TYPE='minor'" >> $GITHUB_ENV
-                      echo "RELEASE_PREFIX='${{ env.MINOR }}'"
-                  elif [[ startsWith('${{ env.COMMIT_MSG }}','${{ env.MAJOR }}') ]];then
+                      echo "RELEASE_PREFIX='[MINOR]'"
+                  elif [[ ${{ env.MAJOR }} ]];then
                       echo "RELEASE_TYPE='major'" >> $GITHUB_ENV
-                      echo "RELEASE_PREFIX='${{ env.MAJOR }}'"
+                      echo "RELEASE_PREFIX='[MAJOR]'"
                   else
                       echo "RELEASE_TYPE=''" >> $GITHUB_ENV
                       echo "RELEASE_PREFIX='"
                   fi
             - run: |
-                  if ! [ ${{ env.RELEASE_TYPE }} == '' ];then
+                  if ! [ ${{ env.RELEASE_TYPE }} == '' ]; then
                       npm version ${{ env.RELEASE_TYPE }} -m "[RELEASE] %s"
                   fi
             - run: |
-                  if ! [ ${{ env.RELEASE_TYPE }} == '' ];then
+                  if ! [ ${{ env.RELEASE_TYPE }} == '' ]; then
                       git push
                   fi
