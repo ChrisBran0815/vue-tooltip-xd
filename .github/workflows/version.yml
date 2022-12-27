@@ -13,7 +13,7 @@ jobs:
             PATCH: ${{ startsWith(github.event.head_commit.message, '[PATCH]') || 'false' }}
             MINOR: ${{ startsWith(github.event.head_commit.message, '[MINOR]') || 'false' }}
             MAJOR: ${{ startsWith(github.event.head_commit.message, '[MAJOR]') || 'false' }}
-        if: "!startsWith(github.event.head_commit.message, '[RELEASE]')"
+        if: "!startsWith(github.event.head_commit.message, '[RELEASE]') && (${{ env.PATCH }} == 'true' || ${{ env.MINOR }} == 'true' || ${{ env.MAJOR }} == 'true' "
         steps:
             - name: Checkout
               uses: actions/checkout@v2
@@ -40,7 +40,7 @@ jobs:
                   fi
             - run: |
                   if ! [ ${{ env.RELEASE_TYPE }} == '' ]; then
-                      npm version ${{ env.RELEASE_TYPE }} -m "[RELEASE] %s"
+                      npm version ${{ env.RELEASE_TYPE }} -m "[RELEASE] ${{ env.RELEASE_PREFIX }} %s"
                   fi
             - run: |
                   if ! [ ${{ env.RELEASE_TYPE }} == '' ]; then
