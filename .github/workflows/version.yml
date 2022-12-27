@@ -13,7 +13,7 @@ jobs:
             PATCH: "[PATCH]"
             MINOR: "[MINOR]"
             MAJOR: "[MAJOR]"
-        if: "!startsWith(github.event.head_commit.message, '[RELEASE]') && (startsWith(github.event.head_commit.message, '[PATCH]') || startsWith(github.event.head_commit.message, '[MINOR]' || startsWith(github.event.head_commit.message, '[MAJOR]'))"
+        if: "!startsWith(github.event.head_commit.message, '[RELEASE]') && (startsWith(github.event.head_commit.message, '[PATCH]') || startsWith(github.event.head_commit.message, '[MINOR]' || startsWith(github.event.head_commit.message, '[MAJOR]') )"
         steps:
             - name: Checkout
               uses: actions/checkout@v2
