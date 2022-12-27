@@ -27,5 +27,5 @@ jobs:
                       echo "RELEASE_TYPE='major'" >> $GITHUB_ENV
                       echo "RELEASE_PREFIX='[MAJORF]"
                   fi
-            - run: npm version ${{ env.RELEASE_TYPE }} -m "[RELEASE] ${env.RELEASE_PREFIX} %s"
+            - run: npm version ${{ env.RELEASE_TYPE }} -m "[RELEASE] %s"
             - run: git push
