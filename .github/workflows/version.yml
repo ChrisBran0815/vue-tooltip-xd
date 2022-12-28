@@ -46,7 +46,7 @@ jobs:
               if: "${{ env.PATCH == 'true' }} || ${{ env.MINOR == 'true' }} || ${{ env.MAJOR == 'true' }}"
               run: |
                   if ! [ ${{ env.RELEASE_TYPE }} == '' ]; then
-                      npm version ${{ env.RELEASE_TYPE }} -m "[RELEASE] '${{ env.RELEASE_PREFIX }}' %s"
+                      npm version ${{ env.RELEASE_TYPE }} -m "[RELEASE] ${{ env.RELEASE_PREFIX }} %s"
                   fi
             - name: Git push
               if: "${{ env.PATCH == 'true' }} || ${{ env.MINOR == 'true' }} || ${{ env.MAJOR == 'true' }}"
