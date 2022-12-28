@@ -29,18 +29,18 @@ jobs:
                   if [ ${{ env.PATCH }} == 'true' ];then 
                       echo "RUN PATCH"
                       echo "RELEASE_TYPE='patch'" >> $GITHUB_ENV
-                      echo "RELEASE_PREFIX='[PATCH]'"
+                      echo "RELEASE_PREFIX='[PATCH]'" >> $GITHUB_ENV
                   elif [ ${{ env.MINOR }} == 'true' ];then
                       echo "RUN MINOR"
                       echo "RELEASE_TYPE='minor'" >> $GITHUB_ENV
-                      echo "RELEASE_PREFIX='[MINOR]'"
+                      echo "RELEASE_PREFIX='[MINOR]'" >> $GITHUB_ENV
                   elif [ ${{ env.MAJOR }} == 'true' ];then
                       echo "RUN MAJOR"
                       echo "RELEASE_TYPE='major'" >> $GITHUB_ENV
-                      echo "RELEASE_PREFIX='[MAJOR]'"
+                      echo "RELEASE_PREFIX='[MAJOR]'" >> $GITHUB_ENV
                   else
                       echo "RELEASE_TYPE=''" >> $GITHUB_ENV
-                      echo "RELEASE_PREFIX='"
+                      echo "RELEASE_PREFIX='" >> $GITHUB_ENV
                   fi
             - name: Increment Version
               if: "${{ env.PATCH == 'true' }} || ${{ env.MINOR == 'true' }} || ${{ env.MAJOR == 'true' }}"
