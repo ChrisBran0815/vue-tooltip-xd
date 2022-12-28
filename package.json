@@ -30,6 +30,8 @@
     "build": "vite build",
     "preview": "vite preview",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore",
+    "acp": "git add . && npm run commit && git push",
+    "commit": "git-cz",
     "semantic-release": "semantic-release  --branches main"
   },
   "dependencies": {
@@ -40,11 +42,17 @@
     "@rushstack/eslint-patch": "^1.1.4",
     "@vitejs/plugin-vue": "^4.0.0",
     "@vue/eslint-config-prettier": "^7.0.0",
+    "cz-conventional-changelog": "^3.3.0",
     "eslint": "^8.22.0",
     "eslint-plugin-vue": "^9.3.0",
     "prettier": "^2.7.1",
     "sass": "^1.57.1",
-    "vite": "^4.0.0",
-    "semantic-release": "^19.0.5"
+    "semantic-release": "^19.0.5",
+    "vite": "^4.0.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
