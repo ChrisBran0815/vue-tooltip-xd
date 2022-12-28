@@ -19,9 +19,9 @@ jobs:
               uses: actions/checkout@v2
               with:
                   token: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
-            - name: Set User
+            - name: Set Username
               run: git config --global user.name 'christoph_xd'
-            - name: Set Email
+            - name: Set User Email
               run: git config --global user.email 'c.brandau91@gmail.com'
             - name: Set ENV
               if: "${{ env.PATCH == 'true' }} || ${{ env.MINOR == 'true' }} || ${{ env.MAJOR == 'true' }}"
