@@ -22,8 +22,11 @@ jobs:
                   token: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
             - name: Set User
               run: git config --global user.name 'christoph_xd'
-            - run: git config --global user.email 'c.brandau91@gmail.com'
-            - run: |
+            - name: Set Email
+              run: git config --global user.email 'c.brandau91@gmail.com'
+            - name: Set ENV
+              if: "${{ PATCH == 'true' }} || ${{ env.MINOR == 'true' }} || ${{ env.MAJOR == 'true' }}"
+              run: |
                   if [ ${{ env.PATCH }} == 'true' ];then 
                       echo "RUN PATCH"
                       echo "RELEASE_TYPE='patch'" >> $GITHUB_ENV
