@@ -14,7 +14,6 @@ jobs:
             MINOR: ${{ startsWith(github.event.head_commit.message, '[MINOR]') || 'false' }}
             MAJOR: ${{ startsWith(github.event.head_commit.message, '[MAJOR]') || 'false' }}
         if: "!startsWith(github.event.head_commit.message, '[RELEASE]')"
-        # && ( ${{ PATCH == 'true' }} || ${{ env.MINOR == 'true' }} || ${{ env.MAJOR == 'true' }} )"
         steps:
             - name: Checkout
               uses: actions/checkout@v2
@@ -43,11 +42,15 @@ jobs:
                       echo "RELEASE_TYPE=''" >> $GITHUB_ENV
                       echo "RELEASE_PREFIX='"
                   fi
-            - run: |
+            - name: Increment Version
+              if: "${{ env.PATCH == 'true' }} || ${{ env.MINOR == 'true' }} || ${{ env.MAJOR == 'true' }}"
+              run: |
                   if ! [ ${{ env.RELEASE_TYPE }} == '' ]; then
                       npm version ${{ env.RELEASE_TYPE }} -m "[RELEASE] ${{ env.RELEASE_PREFIX }} %s"
                   fi
-            - run: |
+            - name: Git push
+              if: "${{ env.PATCH == 'true' }} || ${{ env.MINOR == 'true' }} || ${{ env.MAJOR == 'true' }}"
+              run: |
                   if ! [ ${{ env.RELEASE_TYPE }} == '' ]; then
                       git push
                   fi
