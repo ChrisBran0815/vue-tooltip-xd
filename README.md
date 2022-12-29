@@ -60,6 +60,8 @@ the default value is bottom
 /* font var*/
 --font-vue-tooltip-family   /*font-family for the ToolTip */
 --font-vue-tooltip-size     /*font-size for the ToolTip */
+/* time to display the tooltip */
+--time-vue-tooltip
 ```
 
 Follow the Project at GitHub https://github.com/christoph-xd/vue-tooltip-xd.git .

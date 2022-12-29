@@ -102,6 +102,17 @@ $background-color: #37393d;
 $text-color: white;
 $font-family: "Roboto", sans-serif;
 $font-size: medium;
+$animation-time: 0.25s;
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
 .wrapper {
     display: inline-block;
     .ref {
@@ -120,6 +131,8 @@ $font-size: medium;
         border-radius: 0.5rem;
         cursor: default;
         white-space: pre-wrap;
+        animation: fadeIn var(--time-vue-tooltip, $animation-time) ease-in-out
+            forwards;
         .arrow {
             position: absolute;
             z-index: -1;
