@@ -104,6 +104,7 @@ $font-family: "Roboto", sans-serif;
 $font-size: medium;
 $animation-time: 0.25s;
 $padding-tooltip: 0.25rem 0.5rem 0.25rem 0.5rem;
+$border-radius: 0.5rem;
 
 @keyframes fadeIn {
     0% {
@@ -129,7 +130,7 @@ $padding-tooltip: 0.25rem 0.5rem 0.25rem 0.5rem;
         font-size: var(--font-vue-tooltip-size, $font-size);
         color: var(--clr-vue-tooltip-text, $text-color);
         padding: var(--p-vue-tooltip-inside, $padding-tooltip);
-        border-radius: 0.5rem;
+        border-radius: var(--rounded-vue-tooltip, $border-radius);
         cursor: default;
         white-space: pre-wrap;
         animation: fadeIn var(--time-vue-tooltip, $animation-time) ease-in-out
