@@ -103,6 +103,7 @@ $text-color: white;
 $font-family: "Roboto", sans-serif;
 $font-size: medium;
 $animation-time: 0.25s;
+$padding-tooltip: 0.25rem 0.5rem 0.25rem 0.5rem;
 
 @keyframes fadeIn {
     0% {
@@ -127,7 +128,7 @@ $animation-time: 0.25s;
         font-family: var(--font-vue-tooltip-family, $font-family);
         font-size: var(--font-vue-tooltip-size, $font-size);
         color: var(--clr-vue-tooltip-text, $text-color);
-        padding: 0.25rem 0.5rem 0.25rem 0.5rem;
+        padding: var(--p-vue-tooltip-inside, $padding-tooltip);
         border-radius: 0.5rem;
         cursor: default;
         white-space: pre-wrap;
