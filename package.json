@@ -32,7 +32,7 @@
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore",
     "acp": "git add . && npm run commit && git push",
     "commit": "git-cz",
-    "semantic-release": "semantic-release  --branches main"
+    "semantic-release": "semantic-release --branches main"
   },
   "dependencies": {
     "@floating-ui/vue": "^0.1.0",
